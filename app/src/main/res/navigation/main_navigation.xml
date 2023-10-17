@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="binar.academy.challenge3.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_maintenanceFragment"
+            app:destination="@id/maintenanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="binar.academy.challenge3.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="menuSelected"
+            app:argType="binar.academy.challenge3.MenuItem"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_detailFragment_to_maintenanceFragment2"
+            app:destination="@id/maintenanceFragment" />
+    </fragment>
+    <argument
+        android:name="namaMenu"
+        app:argType="string"
+        app:nullable="true"
+        android:defaultValue="Menu Name" />
+    <argument
+        android:name="hargaMenu"
+        app:argType="integer"
+        android:defaultValue="0000" />
+    <argument
+        android:name="deskripsiMenu"
+        app:argType="string"
+        app:nullable="true"
+        android:defaultValue="Deskripsi Lokasi" />
+    <argument
+        android:name="fotoMenu"
+        app:argType="integer"
+        android:defaultValue="1" />
+    <fragment
+        android:id="@+id/maintenanceFragment"
+        android:name="binar.academy.challenge3.MaintenanceFragment"
+        android:label="fragment_maintenance"
+        tools:layout="@layout/fragment_maintenance" />
+</navigation>
